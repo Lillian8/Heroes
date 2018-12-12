@@ -2,6 +2,7 @@ const express = require('express')
 const path = require('path');
 const app = express()
 
+const port = process.env.port || 3000
 
 app.use(express.static(__dirname + '/dist/spa'))
 app.get('*', function(req, res) {
@@ -14,6 +15,6 @@ app.get('*', function(req, res) {
 //     res.sendFile(path.join(__dirname+'/dist/<name-of-app>/index.html'));
 //     });
 
-app.listen(3000, () => {
-    console.log("corriendo en el puerto 3000");
+app.listen(port, () => {
+    console.log(`corriendo en el puerto ${port}`);
 })
